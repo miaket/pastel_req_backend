@@ -1,15 +1,3 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-  var Request = sequelize.define('Request', {
-    content: DataTypes.STRING,
-    complete: DataTypes.BOOLEAN
-  }, {});
-  Request.associate = function(models) {
-    // associations can be defined here
-  };
-  return Request;
-};
-
 module.exports = (sequelize, DataTypes) => {
   const Request = sequelize.define('Request', {
     content: {
@@ -25,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   Request.associate = (models) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',
-      onDelete: 'CASCADE',
+      //onDelete: 'CASCADE',
     });
   };
 
