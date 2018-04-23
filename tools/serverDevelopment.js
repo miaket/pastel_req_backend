@@ -13,7 +13,7 @@ app.use('/api', router);
 app.use(logger.errorHandler());
 app.use(morgan('tiny'));
 
-app.get('*', (req, res) => res.status(200).send({
-  message: 'Hiya!',
-}));
+// app.get('*', (req, res) => res.status(200).send({
+//   message: 'Hiya!',
+// }));
 module.exports = app;

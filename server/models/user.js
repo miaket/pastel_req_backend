@@ -8,28 +8,10 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.associate = (models) => {
-    Todo.hasMany(models.request, {
+    User.hasMany(models.Request, {
       foregnKey: 'requestId',
       as: 'requests',
     });
   };
   return User;
-};
-
-module.exports = (sequelize, DataTypes) => {
-  const Todo = sequelize.define('Todo', {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  });
-
-  Todo.associate = (models) => {
-    Todo.hasMany(models.TodoItem, {
-      foreignKey: 'todoId',
-      as: 'todoItems',
-    });
-  };
-
-  return Todo;
 };
