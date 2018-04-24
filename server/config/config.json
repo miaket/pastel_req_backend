@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "leonak",
-    "password": null,
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "leonak",
-    "password": null,
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
@@ -17,7 +17,7 @@
   },
   "production": {
     "username": "leonak",
-    "password": null,
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
