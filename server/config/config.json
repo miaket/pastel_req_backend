@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "admin",
-    "password": null,
+    "username": "leonak",
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
   },
   "test": {
-    "username": "admin",
-    "password": null,
+    "username": "leonak",
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
   },
   "production": {
-    "username": "admin",
-    "password": null,
+    "username": "leonak",
+    "password": "101112",
     "database": "infostrat_db",
     "host": "127.0.0.1",
     "port": 5432,
