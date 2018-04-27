@@ -7,6 +7,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
 const usersController = require('../controllers/users');
+const requestsController = require('../controllers/requests');
 
 
 //  Placeholder API
@@ -19,5 +20,6 @@ router.get('/', (req, res) => {
 // }));
 
 router.post('/user/create', usersController.create);
+router.post('/request/create', requestsController.create);
 
 module.exports = router;
