@@ -20,6 +20,6 @@ router.get('/', (req, res) => {
 // }));
 
 router.post('/user/create', usersController.create);
-router.post('/request/create', requestsController.create);
+router.post('/user/:userId/create', requestsController.create);
 
 module.exports = router;
