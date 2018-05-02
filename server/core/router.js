@@ -21,6 +21,6 @@ router.get('/', (req, res) => {
 
 router.post('/user/create', usersController.create);
 router.get('/user', usersController.list);
-router.post('/user/:userId/create', requestsController.create);
+router.post('/user/:userId/reqcreate', requestsController.create);
 
 module.exports = router;
