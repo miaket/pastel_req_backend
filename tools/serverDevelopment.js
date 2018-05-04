@@ -29,17 +29,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api', router);
-// app.use('/api', (req, res, next) => {
-  // req.router;
-  // res.header("Access-Control-Allow-Origin", "*");
-// });
-
-
 
 app.use(logger.errorHandler());
 app.use(morgan('tiny'));
 
-// app.get('*', (req, res) => res.status(200).send({
-//   message: 'Hiya!',
-// }));
 module.exports = app;
