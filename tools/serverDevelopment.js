@@ -27,9 +27,7 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
-
 app.use('/api', router);
-
 app.use(logger.errorHandler());
 app.use(morgan('tiny'));
 
