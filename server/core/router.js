@@ -15,9 +15,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/user/create', usersController.create);
-router.get('/user', usersController.list);
+router.get('/user/all', usersController.list);
 
 router.post('/user/:userId/reqcreate', requestsController.create);
-router.get('/req', requestsController.list);
+router.get('/req/all', requestsController.list);
+router.get('/req/:userId', requestsController.listFromUser);
 
 module.exports = router;
