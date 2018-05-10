@@ -26,4 +26,17 @@ module.exports = {
       .then(user => res.status(200).send(user))
       .catch(error => res.status(400).send(error));
   },
+  signin(req, res){
+    console.log (req.body);
+    let encrypPass = encryptor(req.body.password, key);
+    let u = req.body.userName;
+    return User
+      .findOne({
+        where: {
+          userName:u
+        }
+      })
+      .then(user => res.status(200).send(user))
+      .catch(error => res.status(400).send(error));
+  }
 };

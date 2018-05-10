@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/user/create', usersController.create);
+router.post('/user/signin', usersController.signin);
 router.get('/user/all', usersController.list);
 
 router.post('/user/:userId/reqcreate', requestsController.create);
