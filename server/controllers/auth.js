@@ -2,7 +2,7 @@ const User = require('../models').User;
 const Request = require('../models').Request;
 const encryptor = require('../utils').encryptor;
 const decryptor = require('../utils').decryptor;
-const constants = require('../utils/constants');
+const constants = require('../utils').constants;
 const key = process.env.KEY;
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
         }
       })
       .then(User => {
-        if (!user) 
+        if (!User) 
           return res.status(401).json({
             msg: constants.messages.error.INVALID_LOGIN
           });
