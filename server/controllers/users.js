@@ -1,16 +1,18 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
+const encryptor = require('../utils').encryptor;
+const key = process.env.KEY;
 
 module.exports = {
   create(req, res) {
     let encrypPass = encryptor(req.body.password, key);
     return User
-    .create({
-        userName: req.body.userName,
-        password: encrypPass,
-      })
-      .then(user => res.status(201).send(user))
-      .catch(error => res.status(400).send(error));
+      .create({
+          username: req.body.username,
+          password: encryptor(req.body.password, key),
+        })
+        .then(user => res.status(201).send(user))
+        .catch(error => res.status(400).send(error));
   },
   list(req, res) {
     return User

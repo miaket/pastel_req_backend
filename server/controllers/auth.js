@@ -10,7 +10,7 @@ module.exports = {
     return User
       .findOne({
         where: {
-          userName:req.body.userName
+          username:req.body.username
         }
       })
       .then(User => {
