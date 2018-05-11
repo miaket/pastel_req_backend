@@ -1,8 +1,5 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
-const encryptor = require('../utils').encryptor;
-const decryptor = require('../utils').decryptor;
-const key = process.env.KEY;
 
 module.exports = {
   create(req, res) {
@@ -22,19 +19,6 @@ module.exports = {
           model: Request,
           as: 'requests',
         }],
-      })
-      .then(user => res.status(200).send(user))
-      .catch(error => res.status(400).send(error));
-  },
-  signin(req, res){
-    console.log (req.body);
-    let encrypPass = encryptor(req.body.password, key);
-    let u = req.body.userName;
-    return User
-      .findOne({
-        where: {
-          userName:u
-        }
       })
       .then(user => res.status(200).send(user))
       .catch(error => res.status(400).send(error));
