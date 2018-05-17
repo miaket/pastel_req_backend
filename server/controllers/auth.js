@@ -19,7 +19,6 @@ module.exports = {
             msg: constants.messages.error.INVALID_LOGIN
           });
         if (decryptor(User.password, key) == req.body.password){
-          console.log('pass does match')
           res.status(200).send(User)
         } else{
           res.status(401).json({
@@ -27,6 +26,6 @@ module.exports = {
           })
         }
       })
-      .catch(error => res.status(400).send(error));
+      .catch(error => res.status(404).send(error));
   }
 };
