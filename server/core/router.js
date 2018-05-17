@@ -8,7 +8,8 @@ router.use(bodyParser.urlencoded({ extended: false }));
 
 const authController = require('../controllers').auth;
 const usersController = require('../controllers').users;
-const requestsController = require('../controllers/requests');
+const requestsController = require('../controllers').requests;
+const formsController = require('../controllers').forms;
 
 //  Placeholder API
 router.get('/', (req, res) => {
@@ -23,5 +24,7 @@ router.get('/user/all', usersController.list);
 router.post('/user/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
 router.get('/req/:userId', requestsController.listFromUser);
+
+router.post('/form', formsController.create);
 
 module.exports = router;
