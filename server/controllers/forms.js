@@ -16,24 +16,24 @@ module.exports = {
   list(req, res) {
     return Form
       .findAll()
-      .then(Form => res.status(200).send(Form))
+      .then(form => res.status(200).send(form))
       .catch(error => res.status(400).send(error));
   },
-  listFromUser(req, res) {
-    return User
-      .findById(req.params.userId, {
+  listFromReq(req, res) {
+    return Request
+      .findById(req.params.requestId, {
         include: [{
           model: Request,
           as: 'requests',
         }],
       })
-      .then(user => {
-        if (!user) {
+      .then(request => {
+        if (!request) {
           return res.status(404).send({
             message: 'user Not Found',
           });
         }
-        return res.status(200).send(user);
+        return res.status(200).send(request);
       })
       .catch(error => res.status(400).send(error));
   },

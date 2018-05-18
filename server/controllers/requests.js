@@ -1,5 +1,6 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
+const Form = require('../models').Form;
 
 module.exports = {
   create(req, res) {
@@ -14,7 +15,7 @@ module.exports = {
   list(req, res) {
     return Request
       .findAll()
-      .then(user => res.status(200).send(user))
+      .then(request => res.status(200).send(request))
       .catch(error => res.status(400).send(error));
   },
   listFromUser(req, res) {
