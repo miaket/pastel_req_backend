@@ -26,5 +26,7 @@ router.get('/req/all', requestsController.list);
 router.get('/req/:userId', requestsController.listFromUser);
 
 router.post('/form', formsController.create);
+router.get('/form/:requestId', formsController.listFromReq);
+router.get('/form/all', formsController.list);
 
 module.exports = router;
