@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Request = sequelize.define('Form', {
+  const Form = sequelize.define('Form', {
     formType: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  Request.associate = (models) => {
-    Request.belongsTo(models.Request, {
+  Form.associate = (models) => {
+    Form.belongsTo(models.Request, {
       foreignKey: 'requestId',
     });
   };
 
-  return Request;
+  return Form;
 };

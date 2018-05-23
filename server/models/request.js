@@ -14,11 +14,14 @@ module.exports = (sequelize, DataTypes) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',
     });
+  };
+
+  Request.associate = (models) => {
     Request.hasMany(models.Form,{
       foreignKey:'requestId',
       as: 'forms',
     });
   };
-
+  
   return Request;
 };

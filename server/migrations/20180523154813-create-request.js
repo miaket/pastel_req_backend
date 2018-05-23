@@ -30,15 +30,15 @@ module.exports = {
           key: 'id',
           as: 'userId',
         },
+      },
+      formId: {
+        type:Sequelize.INTEGER,
+        references: {
+          model: 'Forms',
+          key: 'id',
+          as: 'formId',
+        }
       }
-      // formId: {
-      //   type:Sequelize.INTEGER,
-      //   references: {
-      //     model: 'Forms',
-      //     key: 'id',
-      //     as: 'formId',
-      //   }
-      // }
     }),
   down: (queryInterface /* , Sequelize */) =>
     queryInterface.dropTable('Requests'),
