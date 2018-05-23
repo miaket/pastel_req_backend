@@ -1,17 +1,18 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('Forms', {
+    queryInterface.createTable('Customers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      formType: {
-        type: Sequelize.STRING,
+      customerNumber: {
         allowNull: false,
+        type: Sequelize.INTEGER,
       },
-      ec: {
+      customerName: {
+        allowNull: true,
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -22,15 +23,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      requestId: {
-        type:Sequelize.INTEGER,
-        references: {
-          model: 'Requests',
-          key: 'id',
-          as: 'requestId',
-        }
-      }
+      // requestcustomerId: {
+      //   type:Sequelize.INTEGER,
+      //   references: {
+      //     model: 'Requestcustomers',
+      //     key: 'id',
+      //     as: 'requestcustomerId',
+      //   }
+      // }
     }),
   down: (queryInterface /* , Sequelize */) =>
-    queryInterface.dropTable('Forms'),
+    queryInterface.dropTable('Customer'),
 };
