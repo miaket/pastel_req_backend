@@ -23,10 +23,10 @@ router.get('/user/all', usersController.list);
 
 router.post('/user/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
-router.get('/req/byuser/:userId', requestsController.listFromUser);
+router.get('/req/byuser:userId', requestsController.listFromUser);
 
 router.post('/form', formsController.create);
 router.get('/form/all', formsController.list);
-router.get('/form/byreq/:requestId', formsController.listFromReq);
+router.get('/form/byreq:requestId', formsController.listFromReq);
 
 module.exports = router;
