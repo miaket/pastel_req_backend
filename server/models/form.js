@@ -8,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
-
   Form.associate = (models) => {
     Form.belongsTo(models.Request, {
       foreignKey: 'requestId',

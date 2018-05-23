@@ -8,25 +8,23 @@ module.exports = (sequelize, DataTypes) => {
     urgencyLevel:{
       type: DataTypes.INTEGER,
       allowNull: false,
-    },   
+    },
     message: {
       type: DataTypes.STRING,
       allowNull: true,
     },
   });
-  
   Request.associate = (models) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',
     });
   };
-
   Request.associate = (models) => {
     Request.hasMany(models.Form,{
       foreignKey:'requestId',
       as: 'forms',
     });
   };
-  
+
   return Request;
 };
