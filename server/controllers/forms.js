@@ -23,14 +23,14 @@ module.exports = {
     return Request
       .findById(req.params.requestId, {
         include: [{
-          model: Request,
-          as: 'requests',
+          model: Form,
+          as: 'forms',
         }],
       })
       .then(request => {
         if (!request) {
           return res.status(404).send({
-            message: 'user Not Found',
+            message: 'req Not Found',
           });
         }
         return res.status(200).send(request);
