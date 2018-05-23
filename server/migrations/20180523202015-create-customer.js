@@ -23,15 +23,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      // requestcustomerId: {
-      //   type:Sequelize.INTEGER,
-      //   references: {
-      //     model: 'Requestcustomers',
-      //     key: 'id',
-      //     as: 'requestcustomerId',
-      //   }
-      // }
     }),
   down: (queryInterface /* , Sequelize */) =>
-    queryInterface.dropTable('Customer'),
+    queryInterface.dropTable('Customers'),
 };
