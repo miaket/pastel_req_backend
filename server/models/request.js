@@ -20,9 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
   Request.associate = (models) => {
-    Request.hasMany(models.Form,{
+    Request.hasMany(models.Requestcustomer,{
       foreignKey:'requestId',
-      as: 'forms',
+      as: 'Requestcustomers',
     });
   };
 
