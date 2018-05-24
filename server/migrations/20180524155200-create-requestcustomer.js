@@ -24,6 +24,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       requestId: {
+        allowNull: false,
         type:Sequelize.INTEGER,
         references: {
           model: 'Requests',
@@ -32,6 +33,7 @@ module.exports = {
         }
       },
       customerId:{
+        allowNull: false,
         type:Sequelize.INTEGER,
         references: {
           model: 'Customers',
