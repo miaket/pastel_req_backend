@@ -1,10 +1,13 @@
 const users = require('./users');
 const requests = require('./requests');
-const forms = require('./forms');
+const customers = require('./customers');
+const requestcustomers = require('./requestcustomers');
 const auth = require('./auth');
+
 module.exports = {
   users,
   requests,
-  forms,
+  requestcustomers,
+  customers,
   auth,
 };

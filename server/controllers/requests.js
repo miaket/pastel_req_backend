@@ -1,12 +1,13 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
-const Form = require('../models').Form;
+const Customerinfo = require('../models').Customerinfo;
 
 module.exports = {
   create(req, res) {
     return Request
       .create({
         content: req.body.content,
+        urgencyLevel: req.body.urgencyLevel,
         userId: req.params.userId,
       })
       .then(request => res.status(201).send(request))
