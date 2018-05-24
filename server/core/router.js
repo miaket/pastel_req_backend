@@ -30,7 +30,7 @@ router.get('/req/byuser:userId', requestsController.listFromUser);
 
 
  router.post('/requestcustomer/create', requestcustomersController.create);
-// router.get('/customerinfo/all', requestcustomerController.list);
+ router.get('/requestcustomer/all', requestcustomersController.list);
 // router.get('/customerinfo/byreq:requestId', requestcustomerController.listFromReq);
 
 module.exports = router;
