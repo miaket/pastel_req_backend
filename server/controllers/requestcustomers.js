@@ -1,15 +1,14 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
-const Customerinfo = require('../models').Customerinfo;
+const Requestcustomer = require('../models').Requestcustomer;
 
 module.exports = {
   create(req, res) {
-    return Customerinfo
+    return Requestcustomer
       .create({
         dateFrom: req.body.dateFrom,
         dateTo: req.body.dateTo,
-        customerNumber: req.body.customerNumber,
-        customerName: req.body.customerName,
+        customerId: req.body.customerId,
         requestId: req.body.requestId
       })
       .then(request => res.status(201).send(request))
@@ -19,7 +18,7 @@ module.exports = {
       })
       },
   list(req, res) {
-    return Customerinfo
+    return Requestcustomer
       .findAll()
       .then(form => res.status(200).send(form))
       .catch(error => res.status(400).send(error));
@@ -28,7 +27,7 @@ module.exports = {
     return Request
       .findById(req.params.requestId, {
         include: [{
-          model: Customerinfo,
+          model: Requestcustomer,
           as: 'forms',
         }],
       })
