@@ -3,9 +3,9 @@ module.exports = {
     queryInterface.createTable('Customers', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
+        defaultValue: Sequelise.UUIDV4
       },
       customerNumber: {
         allowNull: false,
