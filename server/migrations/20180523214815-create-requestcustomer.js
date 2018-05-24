@@ -32,7 +32,7 @@ module.exports = {
         }
       },
       customerId:{
-        type:Sequelize.INTEGER,
+        type:Sequelize.UUID,
         references: {
           model: 'Customers',
           key: 'id',

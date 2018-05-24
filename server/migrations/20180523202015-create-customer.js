@@ -5,7 +5,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
-        defaultValue: Sequelise.UUIDV4
+        defaultValue: Sequelize.UUIDV4
       },
       customerNumber: {
         allowNull: false,
