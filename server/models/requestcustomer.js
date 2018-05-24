@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'requestId',
     });
   };
-
+  Requestcustomer.associate = (models) => {
+    Requestcustomer.belongsTo(models.Customer,{
+      foreignKey:'customerId',
+    });
+  };
   return Requestcustomer;
 };
