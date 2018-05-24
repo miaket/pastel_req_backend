@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   Request.associate = (models) => {
     Request.hasMany(models.Requestcustomer,{
       foreignKey:'requestId',
-      as: 'Requestcustomers',
+      as: 'requestcustomers',
     });
   };
 
