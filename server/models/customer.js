@@ -9,12 +9,5 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
-
-  // Customer.associate = (models) => {
-  //   Customer.hasMany(models.Request, {
-  //     foreignKey: 'customerId',
-  //     as: 'requests',
-  //   });
-  // };
   return Customer;
 };
