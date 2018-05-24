@@ -20,7 +20,7 @@ module.exports = {
   list(req, res) {
     return Requestcustomer
       .findAll()
-      .then(form => res.status(200).send(form))
+      .then(requestcustomer => res.status(200).send(requestcustomer))
       .catch(error => res.status(400).send(error));
   },
   listFromReq(req, res) {
@@ -28,7 +28,7 @@ module.exports = {
       .findById(req.params.requestId, {
         include: [{
           model: Requestcustomer,
-          as: 'forms',
+          as: 'requestcustomers',
         }],
       })
       .then(request => {
