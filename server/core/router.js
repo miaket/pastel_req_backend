@@ -9,8 +9,8 @@ router.use(bodyParser.urlencoded({ extended: false }));
 const authController = require('../controllers').auth;
 const usersController = require('../controllers').users;
 const requestsController = require('../controllers').requests;
-const requestcustomerController = require('../controllers').requestcustomer;
-
+const customersController = require('../controllers').customers;
+const requestcustomersController = require('../controllers').requestcustomers;
 //  Placeholder API
 router.get('/', (req, res) => {
   res.status(200).json({msg: 'ello!'});
@@ -21,9 +21,13 @@ router.post('/signin', authController.signin);
 router.post('/user/create', usersController.create);
 router.get('/user/all', usersController.list);
 
+router.post('/customer/create', customersController.create);
+router.get('/customer/all', customersController.list);
+
 router.post('/user/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
 router.get('/req/byuser:userId', requestsController.listFromUser);
+
 
 // router.post('/customerinfo', requestcustomerController.create);
 // router.get('/customerinfo/all', requestcustomerController.list);
