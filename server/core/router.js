@@ -29,7 +29,7 @@ router.get('/req/all', requestsController.list);
 router.get('/req/byuser:userId', requestsController.listFromUser);
 
 
-// router.post('/customerinfo', requestcustomerController.create);
+ router.post('/requestcustomer/create', requestcustomersController.create);
 // router.get('/customerinfo/all', requestcustomerController.list);
 // router.get('/customerinfo/byreq:requestId', requestcustomerController.listFromReq);
 
