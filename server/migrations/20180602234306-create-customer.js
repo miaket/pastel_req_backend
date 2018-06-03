@@ -9,7 +9,7 @@ module.exports = {
       },
       customerNumber: {
         allowNull: false,
-        type: Sequelize.BIGINT2,
+        type: Sequelize.BIGINT,
       },
       customerName: {
         allowNull: true,
