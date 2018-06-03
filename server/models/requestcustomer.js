@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
   Requestcustomer.associate = (models) => {
     Requestcustomer.belongsTo(models.Request, {
       foreignKey: 'requestId',
+      as: 'requests'
     });
   };
   Requestcustomer.associate = (models) => {
     Requestcustomer.belongsTo(models.Customer,{
       foreignKey:'customerId',
+      as: 'customers'
     });
   };
   return Requestcustomer;

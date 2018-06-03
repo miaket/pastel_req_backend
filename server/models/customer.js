@@ -9,5 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
+  Customer.associate = (models) => {
+    Customer.hasMany(models.Requestcustomer,{
+      foreignKey:'customerId',
+      as: 'requestcustomers',
+    });
+  };
+
   return Customer;
 };
