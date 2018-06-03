@@ -18,13 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',
     });
-  };
-  Request.associate = (models) => {
     Request.hasMany(models.Requestcustomer,{
       foreignKey:'requestId',
       as: 'requestcustomers',
     });
   };
-
   return Request;
 };

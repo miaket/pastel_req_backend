@@ -15,6 +15,5 @@ module.exports = (sequelize, DataTypes) => {
       as: 'requestcustomers',
     });
   };
-
   return Customer;
 };

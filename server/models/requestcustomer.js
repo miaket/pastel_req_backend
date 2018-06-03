@@ -14,8 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'requestId',
       as: 'requests'
     });
-  };
-  Requestcustomer.associate = (models) => {
     Requestcustomer.belongsTo(models.Customer,{
       foreignKey:'customerId',
       as: 'customers'
