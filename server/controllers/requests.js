@@ -39,4 +39,28 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
+  testReturnApi(req, res) {
+    let objRequest;
+    objRequest = [{
+      requestId: 10,
+      urgencyLevel: 4,
+      createdAt: "2018-05-26T21:27:11.385Z",
+      customers:[{
+        name: "Rocket League ltda",
+        number: "1029384756"
+      },{
+        name: "Freezing laser inc",
+        number: "9987654321"
+      }]
+    },{
+      requestId: 10,
+      urgencyLevel: 1,
+      createdAt: "2018-06-04T21:27:11.385Z",
+      customers:[{
+        name: "Paper Berry",
+        number: "1112223334"
+      }]
+    }]
+    return res.status(200).send(objRequest);
+  }
 };

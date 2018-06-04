@@ -27,10 +27,11 @@ router.get('/customer/all', customersController.list);
 router.post('/user/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
 router.get('/req/byuser:userId', requestsController.listFromUser);
+router.get('/user/myrequests', requestsController.testReturnApi)
 
 
- router.post('/requestcustomer/create', requestcustomersController.create);
- router.get('/requestcustomer/all', requestcustomersController.list);
+router.post('/requestcustomer/create', requestcustomersController.create);
+router.get('/requestcustomer/all', requestcustomersController.list);
 // router.get('/customerinfo/byreq:requestId', requestcustomerController.listFromReq);
 
 module.exports = router;
