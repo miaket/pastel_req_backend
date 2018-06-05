@@ -11,6 +11,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      complete:{
+        allowNull: false,
+        type: Sequelize.BOOLEAN
+      },
+      message:{
+        allowNull:true,
+        type:Sequelize.STRING
+      },
       userId:{
         allowNull: false,
         type:Sequelize.INTEGER,

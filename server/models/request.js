@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',
     });
-    Request.hasMany(models.Requestcustomer,{
-      foreignKey:'requestId',
-      as: 'requestcustomers',
+    Request.belongsToMany(models.Customer,{
+      through:'requestcustomer',
+      as: 'customers',
     });
   };
   return Request;

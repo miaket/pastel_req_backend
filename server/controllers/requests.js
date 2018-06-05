@@ -7,13 +7,16 @@ module.exports = {
   create(req, res) {
     return Request
       .create({
-        complete: req.body.content,
-        urgencyLevel: req.body.urgencyLevel,
         message: req.body.message,
+        urgencyLevel: req.body.urgencyLevel,
+        complete: req.body.complete,
         userId: req.params.userId
       })
       .then(request => res.status(201).send(request))
-      .catch(error => res.status(400).send(error));
+      .catch(error => {
+        console.log (error)
+        return res.status(400).send(error);
+      })
   },
   list(req, res) {
     return Request
