@@ -4,9 +4,9 @@ module.exports = {
   create(req, res) {
     return Customer
       .create({
-          customerNumber: req.body.customerNumber,
-          customerName: req.body.customerName,
-        })
+        regNumber: req.body.regNumber,
+        name: req.body.name,
+      })
         .then(user => res.status(201).send(user))
         .catch(error => res.status(400).send(error))
   },
