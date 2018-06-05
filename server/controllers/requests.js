@@ -1,4 +1,3 @@
-
 const User = require('../models').User;
 const Request = require('../models').Request;
 const Customerinfo = require('../models').Customerinfo;
