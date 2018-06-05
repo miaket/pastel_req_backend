@@ -7,11 +7,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      customerNumber: {
+      regNumber: {
         allowNull: false,
         type: Sequelize.BIGINT,
       },
-      customerName: {
+      name: {
         allowNull: true,
         type: Sequelize.STRING,
       },
