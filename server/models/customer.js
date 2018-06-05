@@ -1,19 +1,19 @@
 module.exports = (sequelize, DataTypes) => {
   let Customer = sequelize.define('Customer', {
-    customerNumber: {
+    regNumber: {
       allowNull: false,
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
     },
-    customerName: {
+    name: {
       allowNull: true,
       type: DataTypes.STRING,
     },
   });
   
   Customer.associate = (models) => {
-    Customer.hasMany(models.Requestcustomer,{
-      foreignKey:'customerId',
-      as: 'requestcustomers',
+    Customer.belongsToMany(models.Request,{
+      through:'requestcustomer',
+      as: 'requests',
     });
   };
   return Customer;
