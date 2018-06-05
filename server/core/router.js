@@ -24,10 +24,10 @@ router.get('/user/all', usersController.list);
 router.post('/customer/create', customersController.create);
 router.get('/customer/all', customersController.list);
 
-router.post('/user/:userId/reqcreate', requestsController.create);
+router.post('/req/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
-router.get('/req/byuser:userId', requestsController.listFromUser);
-router.get('/user/myrequests', requestsController.testReturnApi)
+router.get('/req/byuser/:userId', requestsController.listFromUser);
+router.get('/req/myrequests', requestsController.testReturnApi) //test
 
 router.get('/test/:id', requestsController.listRequest);
 
