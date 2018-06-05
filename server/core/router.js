@@ -29,6 +29,7 @@ router.get('/req/all', requestsController.list);
 router.get('/req/byuser:userId', requestsController.listFromUser);
 router.get('/user/myrequests', requestsController.testReturnApi)
 
+router.get('/test/:id', requestsController.listRequest);
 
 router.post('/requestcustomer/create', requestcustomersController.create);
 router.get('/requestcustomer/all', requestcustomersController.list);
