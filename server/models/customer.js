@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Customer = sequelize.define('Customer', {
+  let Customer = sequelize.define('Customer', {
     customerNumber: {
       allowNull: false,
       type: DataTypes.INTEGER,
@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
   });
+  
   Customer.associate = (models) => {
     Customer.hasMany(models.Requestcustomer,{
       foreignKey:'customerId',

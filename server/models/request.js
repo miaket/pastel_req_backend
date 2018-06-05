@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Request = sequelize.define('Request', {
+  let Request = sequelize.define('Request', {
     complete: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
   });
+  
   Request.associate = (models) => {
     Request.belongsTo(models.User, {
       foreignKey: 'userId',

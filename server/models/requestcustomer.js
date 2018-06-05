@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Requestcustomer = sequelize.define('Requestcustomer', {
+  let Requestcustomer = sequelize.define('Requestcustomer', {
     dateFrom: {
       type: DataTypes.DATEONLY,
       allowNull: false,
@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
   });
+  
   Requestcustomer.associate = (models) => {
     Requestcustomer.belongsTo(models.Request, {
       foreignKey: 'requestId',
