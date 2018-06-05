@@ -7,7 +7,7 @@ module.exports = {
   create(req, res) {
     return Request
       .create({
-        content: req.body.content,
+        complete: req.body.content,
         urgencyLevel: req.body.urgencyLevel,
         message: req.body.message,
         userId: req.params.userId
@@ -62,5 +62,21 @@ module.exports = {
       }]
     }]
     return res.status(200).send(objRequest);
+  },
+
+  listRequest(req, res) {
+    return Request.findOne({ where: { id: req.params.id }, include: ['customers'] })
+      .then(user => res.status(200).send(user))
+      .catch(error => {
+        console.log(error)
+        return res.status(400).send(error);
+      })
+  },
+  putRequest(req, res) {
+    return Request.findOne({ where: { id: req.params.id } })
+      .then(function(request) {
+        return request.addProduct(req.body.productId);
+      })
+      .then(handleResponse(res), handleError(res));
   }
-};
+}
