@@ -22,14 +22,6 @@ module.exports = {
         include: [{
           model: Request,
           as: 'requests',
-          include: [{
-            model: Requestcustomer,
-            as: 'requestcustomers',
-            include: [{
-              model: Customer,
-              as: 'customers'
-            }],
-          }],
         }],
       })
       .then(user => res.status(200).send(user))
