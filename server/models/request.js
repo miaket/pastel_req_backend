@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
     });
     Request.belongsToMany(models.Customer,{
-      through:'requestcustomer',
+      through:'RequestCustomers',
       as: 'customers',
     });
   };

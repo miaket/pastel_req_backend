@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   
   Customer.associate = (models) => {
     Customer.belongsToMany(models.Request,{
-      through:'requestcustomer',
+      through:'RequestCustomers',
       as: 'requests',
     });
   };
