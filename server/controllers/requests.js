@@ -74,11 +74,15 @@ module.exports = {
         return res.status(400).send(error);
       })
   },
-  putRequest(req, res) {
+  RequestCustomer(req, res) {
     return Request.findOne({ where: { id: req.params.id } })
       .then(function(request) {
-        return request.addProduct(req.body.productId);
+        return request.addCustomer(req.body.customerId);
       })
-      .then(handleResponse(res), handleError(res));
+      .then(user => res.status(200).send(user))
+      .catch(error => {
+        console.log(error)
+        return res.status(400).send(error);
+      })
   }
 }
