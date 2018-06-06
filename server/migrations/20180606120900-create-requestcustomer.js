@@ -1,6 +1,6 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('Requestcustomers',{
+    return queryInterface.createTable('RequestCustomers',{
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -11,7 +11,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Requests',
-          key: 'id'
+          key: 'id',
+          as: 'requestId'
         }
       },
       customerId: {
@@ -19,7 +20,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Customers',
-          key: 'id'
+          key: 'id',
+          as: 'customerId'
         }
       },
       createdAt: Sequelize.DATE,
@@ -27,6 +29,6 @@ module.exports = {
     }
   )},
 down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Requestcustomers')
+    return queryInterface.dropTable('RequestCustomers')
   }
 };
