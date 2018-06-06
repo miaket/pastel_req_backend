@@ -133,6 +133,56 @@ const Customer = require('../models').Customer;
 //   ]
 // }
 
+const listFromUser = function(userId) {
+  return User
+  .findById(userId, {
+      include: [{
+        model: Request,
+        as: 'requests',
+        include: ['customers']
+      }],
+    })
+    .then(user => {
+      if (!user) {
+        return 'user Not Found';
+      }
+      return user;
+    })
+    .catch(error => error);
+}
+  
+module.exports = {
+  myRequests(req, res) {
+    let objRequest;
+    let uglyRequest = [];
+
+    uglyRequest = listFromUser(req.params.userId)
+    .then(uglyRequest =>{
+      //console.log(uglyRequest.dataValues.requests[0].dataValues.customers[0].dataValues);
+      // console.log(uglyRequest.dataValues)
+      for (var item in uglyRequest.dataValues.requests) {
+        // if (item.hasOwnProperty(key)) {
+        //     console.log(key + " -> " + p[key]);
+        // }
+        console.log ('-item: ' + item)
+        console.log(uglyRequest.dataValues.requests[item].dataValues)
+        // for (var atribute in item){
+        //   console.log ('-atribute: ' + atribute)
+        //   if (uglyRequest.dataValues.requests[item].dataValues[atribute] != 'customers'){
+        //     console.log (uglyRequest.dataValues.requests[item].dataValues)
+        //   }
+        // }
+      }
+      // objRequest.push.apply(uglyRequest.requests)
+      // objRequest =uglyRequest.requests
+      console.log('printing objRequest: ')
+      // console.log(objRequest)
+      return res.status(200).send(objRequest);
+    })
+    .catch(error => error);
+  },
+}
+
 // objRequest = [{
 //   requestId: 10,
 //   urgencyLevel: 4,
@@ -153,31 +203,3 @@ const Customer = require('../models').Customer;
 //     number: "1112223334"
 //   }]
 // }]
-
-module.exports = {
-  myRequests(req, res) {
-    let objRequest;
-    objRequest = listFromUser(req.params.userId);
-    console.log (objRequest)
-    return res.status(200).send(objRequest);
-  },
-  listFromUser(userId) {
-    return User
-      .findById(userId, {
-        include: [{
-          model: Request,
-          as: 'requests',
-          include: ['customers']
-        }],
-      })
-      .then(user => {
-        if (!user) {
-          return res.status(404).send({
-            message: 'user Not Found',
-          });
-        }
-        return res.status(200).send(user);
-      })
-      .catch(error => res.status(400).send(error));
-  },
-}
