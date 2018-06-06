@@ -11,7 +11,7 @@ const usersController = require('../controllers').users;
 const requestsController = require('../controllers').requests;
 const customersController = require('../controllers').customers;
 const requestcustomersController = require('../controllers').requestcustomers;
-const myrequestsController = require('../controllers').myRequests;
+const myRequestsController = require('../controllers').myRequests;
 
 //  Placeholder API
 router.get('/', (req, res) => {
@@ -30,9 +30,9 @@ router.post('/req/customer/:id', requestsController.RequestCustomer);
 router.post('/req/:userId/reqcreate', requestsController.create);
 router.get('/req/all', requestsController.list);
 router.get('/req/byuser/:userId', requestsController.listFromUser);
-router.get('/req/myrequests', requestsController.testReturnApi) //test
+// router.get('/req/myrequests', requestsController.testReturnApi) //test
 
-// router.get('/req/get/:id', requestsController.requestById);
+router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
 router.post('/requestcustomer/create', requestcustomersController.create);
 router.get('/requestcustomer/all', requestcustomersController.list);
