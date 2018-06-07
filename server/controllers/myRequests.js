@@ -42,7 +42,6 @@ module.exports = {
   myRequests(req, res) {
     let objRequest = [];
     let uglyRequest;
-
     uglyRequest = listFromUser(req.params.userId)
       .then(uglyRequest =>{
         for (let item in uglyRequest.dataValues.requests) {
