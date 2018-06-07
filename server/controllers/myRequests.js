@@ -153,27 +153,26 @@ const listFromUser = function(userId) {
   
 module.exports = {
   myRequests(req, res) {
-    let objRequest;
-    let uglyRequest = [];
+    let objRequest = [];
+    let uglyRequest;
 
     uglyRequest = listFromUser(req.params.userId)
     .then(uglyRequest =>{
       //console.log(uglyRequest.dataValues.requests[0].dataValues.customers[0].dataValues);
       // console.log(uglyRequest.dataValues)
       for (var item in uglyRequest.dataValues.requests) {
-        // if (item.hasOwnProperty(key)) {
-        //     console.log(key + " -> " + p[key]);
-        // }
-        console.log ('-item: ' + item)
-        console.log(uglyRequest.dataValues.requests[item].dataValues)
-        // for (var atribute in item){
+        // console.log ('-item: ' + item)
+        // console.log(uglyRequest.dataValues.requests[item].dataValues)
+        // console.log('end')
+        // console.log('message:' + uglyRequest.dataValues.requests[item].dataValues.message)
+        objRequest.push(uglyRequest.dataValues.requests[item].dataValues.message)
+        // for (var atribute in uglyRequest.dataValues.requests[item].dataValues){
         //   console.log ('-atribute: ' + atribute)
-        //   if (uglyRequest.dataValues.requests[item].dataValues[atribute] != 'customers'){
-        //     console.log (uglyRequest.dataValues.requests[item].dataValues)
-        //   }
+        //   // if (atribute != 'customers'){
+            
+        //   // }
         // }
       }
-      // objRequest.push.apply(uglyRequest.requests)
       // objRequest =uglyRequest.requests
       console.log('printing objRequest: ')
       // console.log(objRequest)
