@@ -26,12 +26,14 @@ router.get('/user/all', usersController.list);
 router.post('/customer/create', customersController.create);
 router.get('/customer/all', customersController.list);
 
-router.post('/req/customer/:id', requestsController.RequestCustomer);
-router.post('/req/:userId/reqcreate', requestsController.create);
+//delete v
 router.get('/req/all', requestsController.list);
 router.get('/req/byuser/:userId', requestsController.listFromUser);
+//delete ^
 // router.get('/req/myrequests', requestsController.testReturnApi) //test
 
+router.post('/req/reqcreate/:userId', requestsController.create);
+router.put('/req/customer/:id', requestsController.RequestCustomer);
 router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
 router.post('/requestcustomer/create', requestcustomersController.create);
