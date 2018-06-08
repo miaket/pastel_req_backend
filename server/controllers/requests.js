@@ -12,9 +12,34 @@ module.exports = {
         complete: req.body.complete,
         userId: req.params.userId
       })
-      .then(request => res.status(201).send(request))
+      .then(newRequest => newRequest.dataValues.id)
+        .then(requestId =>{
+          req.body.customersId.forEach(customersId => {
+            console.log(customersId)
+            return Request.findOne({ where: { id: requestId } })
+            .then(function(request) {
+              return request.addCustomer(req.body.customersId);
+            })
+            .then(user => res.status(200).send(user))
+            .catch(error => {
+              console.log(error)
+              return res.status(400).send(error);
+            })
+          });
+        })
       .catch(error => {
         console.log (error)
+        return res.status(400).send(error);
+      })
+  },
+  RequestCustomer(req, res) {
+    return Request.findOne({ where: { id: req.params.id } })
+      .then(function(request) {
+        return request.addCustomer(req.body.customersId);
+      })
+      .then(user => res.status(200).send(user))
+      .catch(error => {
+        console.log(error)
         return res.status(400).send(error);
       })
   },
@@ -56,15 +81,4 @@ module.exports = {
         return res.status(400).send(error);
       })
   },
-  RequestCustomer(req, res) {
-    return Request.findOne({ where: { id: req.params.id } })
-      .then(function(request) {
-        return request.addCustomer(req.body.customerId);
-      })
-      .then(user => res.status(200).send(user))
-      .catch(error => {
-        console.log(error)
-        return res.status(400).send(error);
-      })
-  }
 }
