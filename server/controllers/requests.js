@@ -5,32 +5,13 @@ const Customer = require('../models').Customer;
 
 module.exports = {
   create(req, res) {
+    const { message, urgencyLevel, complete, customersId } = req.body
+    const { userId } = req.params
     return Request
-      .create({
-        message: req.body.message,
-        urgencyLevel: req.body.urgencyLevel,
-        complete: req.body.complete,
-        userId: req.params.userId
-      })
-      .then(newRequest => newRequest.dataValues.id)
-        .then(requestId =>{
-          req.body.customersId.forEach(customersId => {
-            console.log(customersId)
-            return Request.findOne({ where: { id: requestId } })
-            .then(function(request) {
-              return request.addCustomer(req.body.customersId);
-            })
-            .then(user => res.status(200).send(user))
-            .catch(error => {
-              console.log(error)
-              return res.status(400).send(error);
-            })
-          });
-        })
-      .catch(error => {
-        console.log (error)
-        return res.status(400).send(error);
-      })
+      .create({ message, urgencyLevel, complete, userId })
+        .then(newRequest => newRequest.addCustomers(customersId))
+          .then(user => res.status(200).send(user))
+          .catch(error => res.status(400).send(error))
   },
   RequestCustomer(req, res) {
     return Request.findOne({ where: { id: req.params.id } })
