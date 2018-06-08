@@ -32,7 +32,7 @@ router.get('/req/byuser/:userId', requestsController.listFromUser);
 //delete ^
 // router.get('/req/myrequests', requestsController.testReturnApi) //test
 
-router.post('/req/reqcreate/:userId', requestsController.create);
+router.post('/req/:userId/reqcreate', requestsController.create);
 router.put('/req/customer/:id', requestsController.RequestCustomer);
 router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
