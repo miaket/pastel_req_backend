@@ -25,6 +25,7 @@ router.get('/user/all', usersController.list);
 
 router.post('/customer/create', customersController.create);
 router.get('/customer/all', customersController.list);
+router.get('/customer/:customerid', customersController.getCustomer);
 
 //delete v
 router.get('/req/all', requestsController.list);
