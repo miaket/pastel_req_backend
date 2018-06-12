@@ -23,15 +23,8 @@ router.post('/signin', authController.signin);
 router.post('/user/create', usersController.create);
 router.get('/user/all', usersController.list);
 
-router.post('/customer/create', customersController.create);
+router.post('/customer/validatecreate', customersController.validCustomer);
 router.get('/customer/all', customersController.list);
-router.get('/customer/:customerid', customersController.getCustomer);
-
-//delete v
-router.get('/req/all', requestsController.list);
-router.get('/req/byuser/:userId', requestsController.listFromUser);
-//delete ^
-// router.get('/req/myrequests', requestsController.testReturnApi) //test
 
 router.post('/req/:userId/reqcreate', requestsController.create);
 router.put('/req/customer/:id', requestsController.RequestCustomer);
