@@ -12,6 +12,7 @@ module.exports = {
         .then(newRequest => newRequest.addCustomers(customersId))
           .then(user => res.status(200).send(user))
           .catch(error => res.status(400).send(error))
+        .catch(error => res.status(400).send(error))
   },
   RequestCustomer(req, res) {
     return Request.findOne({ where: { id: req.params.id } })
