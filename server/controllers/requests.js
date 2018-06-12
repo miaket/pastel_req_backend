@@ -14,17 +14,17 @@ module.exports = {
           .catch(error => res.status(400).send(error))
         .catch(error => res.status(400).send(error))
   },
-  RequestCustomer(req, res) {
-    return Request.findOne({ where: { id: req.params.id } })
-      .then(function(request) {
-        return request.addCustomer(req.body.customersId);
-      })
-      .then(user => res.status(200).send(user))
-      .catch(error => {
-        console.log(error)
-        return res.status(400).send(error);
-      })
-  },
+  // RequestCustomer(req, res) {
+  //   return Request.findOne({ where: { id: req.params.id } })
+  //     .then(function(request) {
+  //       return request.addCustomer(req.body.customersId);
+  //     })
+  //     .then(user => res.status(200).send(user))
+  //     .catch(error => {
+  //       console.log(error)
+  //       return res.status(400).send(error);
+  //     })
+  // },
   list(req, res) {
     return Request
       .findAll({

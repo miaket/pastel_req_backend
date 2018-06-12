@@ -27,7 +27,7 @@ router.post('/customer/validatecreate', customersController.validCustomer);
 router.get('/customer/:regNumber', customersController.getCustomer);
 
 router.post('/req/:userId/reqcreate', requestsController.create);
-router.put('/req/customer/:id', requestsController.RequestCustomer);
+// router.put('/req/customer/:id', requestsController.RequestCustomer);
 router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
 // router.post('/requestcustomer/create', requestcustomersController.create);
