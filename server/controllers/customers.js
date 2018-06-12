@@ -26,6 +26,10 @@ module.exports = {
     return getCustomer(regNumber).then(Customer => {
       if (Customer){
         return res.status(200).send(Customer);
+      } else {
+        return res.status(200).send({
+          msg: "new customer"
+        });
       }
     })
   },
