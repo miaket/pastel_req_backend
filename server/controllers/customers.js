@@ -4,22 +4,16 @@ const getCustomer = function(regNumberId){
   return Customer
     .findOne({
       where: {regNumber: regNumberId},
-      attributes: [
-        'id',
-        'regNumber',
-        'name'
-      ],
+      attributes: ['id','regNumber','name'],
     })
       .then(Customer => Customer)
       .catch(error => error);
 }
 
 const createCustomer = function(req) {
+  const { regNumber, name } = req.body
   return Customer
-    .create({
-      regNumber: req.body.regNumber,
-      name: req.body.name,
-    })
+    .create({ regNumber, name})
     .then(customer => {
       return customer;
     })
