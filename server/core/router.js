@@ -10,7 +10,7 @@ const authController = require('../controllers').auth;
 const usersController = require('../controllers').users;
 const requestsController = require('../controllers').requests;
 const customersController = require('../controllers').customers;
-const requestcustomersController = require('../controllers').requestcustomers;
+// const requestcustomersController = require('../controllers').requestcustomers;
 const myRequestsController = require('../controllers').myRequests;
 
 //  Placeholder API
@@ -24,14 +24,14 @@ router.post('/user/create', usersController.create);
 router.get('/user/all', usersController.list);
 
 router.post('/customer/validatecreate', customersController.validCustomer);
-router.get('/customer/all', customersController.list);
+router.get('/customer/:regNumber', customersController.getCustomer);
 
 router.post('/req/:userId/reqcreate', requestsController.create);
 router.put('/req/customer/:id', requestsController.RequestCustomer);
 router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
-router.post('/requestcustomer/create', requestcustomersController.create);
-router.get('/requestcustomer/all', requestcustomersController.list);
+// router.post('/requestcustomer/create', requestcustomersController.create);
+// router.get('/requestcustomer/all', requestcustomersController.list);
 // router.get('/customerinfo/byreq:requestId', requestcustomerController.listFromReq);
 
 module.exports = router;

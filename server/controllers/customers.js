@@ -21,11 +21,13 @@ const createCustomer = function(req) {
 }
 
 module.exports = {
-  list(req, res) {
-    return Customer
-      .findAll()
-      .then(Customer => res.status(200).send(Customer))
-      .catch(error => res.status(400).send(error));
+  getCustomer(req, res) {
+    const { regNumber } = req.params;
+    return getCustomer(regNumber).then(Customer => {
+      if (Customer){
+        return res.status(200).send(Customer);
+      }
+    })
   },
   validCustomer(req, res){
     const { regNumber, name } = req.body;
