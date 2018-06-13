@@ -33,15 +33,17 @@ module.exports = {
       }
     })
   },
-  validCustomer(req, res){
+  validCustomer(req){
+    console.log('inside customesr')
+    console.log(req.body)
     const { regNumber, name } = req.body;
     return getCustomer(regNumber).then(Customer => {
       if (Customer){
-        return res.status(200).send(Customer);
+        return (Customer);
       } else{
         return createCustomer(req)
-          .then(Customer => res.status(400).send(Customer))
-          .catch(error => res.status(400).send(error))
+          .then(Customer => (Customer))
+          .catch(error => (error))
       }
     })
   }
