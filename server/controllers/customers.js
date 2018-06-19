@@ -49,8 +49,7 @@ const validateCustomer = function(regNumber){
 }
 
 module.exports = {
-  getArrayCustomer(req, res){
-    regNumbers = req.body.regNumber
+  getArrayCustomer(regNumbers){
     console.log(regNumbers)
 
     //todo: Call validateCustomer to check if every customer entry exist
@@ -62,8 +61,8 @@ module.exports = {
       .then(customers => {
         const customerIdArr = customers.map(customer => customer.id);
         console.log(customerIdArr)
-        res.status(201).send(customerIdArr)
+        return customerIdArr
       })
-    .catch(error => res.status(400).send(error));
+    .catch(error => error);
   }
 };
