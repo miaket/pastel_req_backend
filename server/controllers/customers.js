@@ -23,11 +23,6 @@ const getCustomer = function(regNumberId){
         return error
       });
 }
-    //   where: {
-    //     authorId: {
-    //       [Op.or]: [12, 13]
-    //     }
-    //   }
 
 const createCustomer = function(req) {
   const { regNumber, name } = req.body
@@ -39,11 +34,27 @@ const createCustomer = function(req) {
   .catch(error => res.status(400).send(error))
 }
 
+const validateCustomer = function(regNumber){
+  console.log('inside customesr')
+  return getCustomer(regNumber).then(Customer => {
+    console.log(Customer);
+    if (Customer){
+      return Customer;
+    } else {
+      return createCustomer(req)
+        .then(Customer => Customer)
+        .catch(error => error)
+    }
+  })
+}
+
 module.exports = {
   getArrayCustomer(req, res){
-    //return only IDs
     regNumbers = req.body.regNumber
     console.log(regNumbers)
+    
+    //todo: Call validateCustomer to check if every customer entry exist
+
     return Customer.findAll({
       where: { regNumber: regNumbers },
       attributes: ['id','regNumber','name']
@@ -54,21 +65,6 @@ module.exports = {
         res.status(201).send(customerIdArr)
       })
     .catch(error => res.status(400).send(error));
-  },
-  validCustomer(req){
-    console.log('inside customesr')
-    console.log(req.body)
-    const { regNumber, name } = req.body;
-    return getCustomer(regNumber).then(Customer => {
-      console.log(Customer);
-      if (Customer){
-        return (Customer);
-      } else {
-        return createCustomer(req)
-          .then(Customer => (Customer))
-          .catch(error => (error))
-      }
-    })
   },
   findOrCreate(req){
     const { regNumber, name} = req.body
