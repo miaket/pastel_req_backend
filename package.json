@@ -17,15 +17,15 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "crypto-js": "^3.1.9-1",
     "dotenv": "^4.0.0",
     "express": "^4.16.3",
     "mongoose": "^4.6.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "rollbar": "^2.2.7",
-    "sequelize": "^4.37.6",
-    "underscore": "^1.8.3",
-    "crypto-js": "^3.1.9-1"
+    "sequelize": "^4.37.10",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "mocha": "^3.0.2",
