@@ -24,7 +24,7 @@ router.post('/user/create', usersController.create);
 router.get('/user/all', usersController.list);
 
 router.post('/customer/validatecreate', customersController.validCustomer);
-router.get('/customer/:regNumber', customersController.getCustomer);
+//router.get('/customer/:regNumber', customersController.getCustomer); <- using get array customers intead
 
 router.post('/findcreate', customersController.findOrCreate);
 router.post('/req/:userId/reqcreate', requestsController.create);
