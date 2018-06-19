@@ -27,7 +27,7 @@ router.get('/user/all', usersController.list);
 //router.get('/customer/:regNumber', customersController.getCustomer);
 //^ using get array customers intead ^
 
-router.post('/findcreate', customersController.findOrCreate);
+// router.post('/findcreate', customersController.findOrCreate);
 router.post('/req/:userId/reqcreate', requestsController.create);
 router.post('/customerlink', requestsController.customerlink);
 // router.put('/req/customer/:id', requestsController.RequestCustomer);
