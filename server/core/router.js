@@ -31,7 +31,7 @@ router.get('/user/all', usersController.list);
 router.post('/req/:userId/reqcreate', requestsController.create);
 router.post('/customerlink', requestsController.customerlink);
 // router.put('/req/customer/:id', requestsController.RequestCustomer);
-router.post('/getarraycustomers', customersController.getArrayCustomer);
+// router.post('/getarraycustomers', customersController.getArrayCustomer);
 router.get('/req/myrequests/:userId', myRequestsController.myRequests);
 
 // router.post('/requestcustomer/create', requestcustomersController.create);
