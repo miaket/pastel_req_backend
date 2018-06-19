@@ -55,31 +55,6 @@ module.exports = {
       })
     .catch(error => res.status(400).send(error));
   },
-  // getCustomer(regNumber,) {
-  // getCustomer(req, res) {
-  //   console.log('inside getcustomer')
-  //   console.log(req.params)
-  //   // const {regNumber} = req.params
-  //   const regNumber = [11111]
-  //   console.log(regNumber)
-  //   // Post.findAll({
-  //   //   where: {
-  //   //     authorId: {
-  //   //       [Op.or]: [12, 13]
-  //   //     }
-  //   //   }
-  //   // });
-  //   //const { regNumber } = req.body;
-  //   return getCustomer(regNumber).then(Customer => {
-  //     if (Customer){
-  //       return res.status(200).send(Customer);
-  //     } else {
-  //       return res.status(200).send({
-  //         msg: "new customer"
-  //       });
-  //     }
-  //   })
-  // },
   validCustomer(req){
     console.log('inside customesr')
     console.log(req.body)
