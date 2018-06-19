@@ -1,17 +1,33 @@
 const Customer = require('../models').Customer;
+const Sequelize = require('sequelize');
 
 const getCustomer = function(regNumberId){
+  const Op = Sequelize.Op;
   console.log('local get cust')
   console.log(regNumberId)
   return Customer
-    .findOne({
-      where: {regNumber: regNumberId},
+    .findAll({
+      where: {
+        regNumber: {
+          [Op.or]:regNumberId
+        }
+      },
       attributes: ['id','regNumber','name'],
     })
-      .then(Customer => Customer)
-      .catch(error => error);
+      .then(Customer => {
+        console.log(Customer)
+        return Customer
+      })
+      .catch(error => {
+        console.log(error)
+        return error
+      });
 }
-
+    //   where: {
+    //     authorId: {
+    //       [Op.or]: [12, 13]
+    //     }
+    //   }
 
 const createCustomer = function(req) {
   const { regNumber, name } = req.body
@@ -25,29 +41,45 @@ const createCustomer = function(req) {
 
 module.exports = {
   getArrayCustomer(req, res){
+    //return only IDs
     regNumbers = req.body.regNumber
     console.log(regNumbers)
-    return Customer.findAll({ where: { regNumber: regNumbers } })
+    return Customer.findAll({
+      where: { regNumber: regNumbers },
+      attributes: ['id','regNumber','name']
+    })
       .then(customers => {
-        console.log(customers)
-        res.status(201).send(customers)
+        const customerIdArr = customers.map(customer => customer.id);
+        console.log(customerIdArr)
+        res.status(201).send(customerIdArr)
       })
     .catch(error => res.status(400).send(error));
   },
-  getCustomer(regNumber) {
-    console.log('inside getcustomer')
-    console.log(req.body)
-    //const { regNumber } = req.body;
-    return getCustomer(regNumber).then(Customer => {
-      if (Customer){
-        return res.status(200).send(Customer);
-      } else {
-        return res.status(200).send({
-          msg: "new customer"
-        });
-      }
-    })
-  },
+  // getCustomer(regNumber,) {
+  // getCustomer(req, res) {
+  //   console.log('inside getcustomer')
+  //   console.log(req.params)
+  //   // const {regNumber} = req.params
+  //   const regNumber = [11111]
+  //   console.log(regNumber)
+  //   // Post.findAll({
+  //   //   where: {
+  //   //     authorId: {
+  //   //       [Op.or]: [12, 13]
+  //   //     }
+  //   //   }
+  //   // });
+  //   //const { regNumber } = req.body;
+  //   return getCustomer(regNumber).then(Customer => {
+  //     if (Customer){
+  //       return res.status(200).send(Customer);
+  //     } else {
+  //       return res.status(200).send({
+  //         msg: "new customer"
+  //       });
+  //     }
+  //   })
+  // },
   validCustomer(req){
     console.log('inside customesr')
     console.log(req.body)
