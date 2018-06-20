@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
   res.status(200).json({msg: 'ello!'});
 });
 
-router.post('/signin', authController.signin);
+router.post('/login', authController.signin);
 
 router.post('/user/create', usersController.create);
 router.get('/user/all', usersController.list);
