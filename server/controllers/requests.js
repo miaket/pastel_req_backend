@@ -1,10 +1,8 @@
 const User = require('../models').User;
 const Request = require('../models').Request;
-const Customerinfo = require('../models').Customerinfo;
 const Customer = require('../models').Customer;
 const controlCustomers = require('./customers');
 
-//getArrayCustomer <- send array of customer's regNumbers
 module.exports = {
   create(req, res) {
     const { message, urgencyLevel, complete, regNumber } = req.body
@@ -32,18 +30,8 @@ module.exports = {
       })
       .catch(error => res.status(400).send(error));
   },
-  // RequestCustomer(req, res) {
-  //   return Request.findOne({ where: { id: req.params.id } })
-  //     .then(function(request) {
-  //       return request.addCustomer(req.body.customersId);
-  //     })
-  //     .then(user => res.status(200).send(user))
-  //     .catch(error => {
-  //       console.log(error)
-  //       return res.status(400).send(error);
-  //     })
-  // },
-  list(req, res) {
+
+  list(res) {
     return Request
       .findAll({
         include:[{
